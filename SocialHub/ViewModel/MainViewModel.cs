@@ -8,12 +8,12 @@ namespace SocialBar.ViewModel
 	/// <summary>
 	/// Main viewmodel for the application
 	/// </summary>
-	public class Main : INotifyPropertyChanged
+	public class MainViewModel : INotifyPropertyChanged
 	{
 		private MessageHandler _handler;
 		public MessageHandler MsgHandler { get { return _handler; } set { _handler = value; } }
 
-		public Main(MainWindow w)
+		public MainViewModel(MainWindow w)
 		{
 			MsgHandler = new MessageHandler(w);
 		}

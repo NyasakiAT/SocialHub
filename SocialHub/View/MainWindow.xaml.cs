@@ -26,7 +26,7 @@ namespace SocialBar
 			notifyIcon.Click += new EventHandler(notifyIcon_Click);
 
 			InitializeComponent();
-			Main vm = new Main(this);
+			MainViewModel vm = new MainViewModel(this);
 			this.DataContext = vm;
 
 			_items = NotificationPanel.Children;

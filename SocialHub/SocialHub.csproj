@@ -316,7 +316,7 @@
       <DependentUpon>Notification.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\NotificationHandler.cs" />
-    <Compile Include="ViewModel\Main.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

@@ -73,6 +73,7 @@ namespace SocialBar.Model
 		{
 			String serverName = "NoServer";
 
+			//Find server to channel if message was sent from a server
 			if (!message.Channel.Name.StartsWith("@"))
 			{
 				List<SocketGuild> x = new List<SocketGuild>();
@@ -94,7 +95,6 @@ namespace SocialBar.Model
 			Console.WriteLine(serverName);
 
 			//Needed for discord to work
-
 			Title = message.Channel.Name;
 			Message = message.Content;
 
@@ -115,8 +115,10 @@ namespace SocialBar.Model
 				}
 			}
 			else
-				//if (Sender != client.CurrentUser.Username)
-				Handler.TriggerAction(Name, Message, Sender, Title);
+			{
+				if (Sender != client.CurrentUser.Username)
+					Handler.TriggerAction(Name, Message, Sender, Title);
+			}
 		}
 
 		/// <summary>
