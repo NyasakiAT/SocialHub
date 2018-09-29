@@ -1,0 +1,13 @@
+﻿##################################
+## SocialHub
+##################################
+[X]Discord
+[X]Twitch
+[X]Display notifications
+[x]Look into Notification project
+--[]Facebook
+--[]Check if tokens set -> send link for twitch
+[x]App icons - Chheck if really wanted
+[x]Notification color depending on messenger
+[]Show if programm is connected
+--[]Discord only PM's -> Config

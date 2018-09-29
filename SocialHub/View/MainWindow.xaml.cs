@@ -1,0 +1,75 @@
+﻿using SocialBar.Model;
+using SocialBar.ViewModel;
+using System;
+using System.Collections;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows;
+
+namespace SocialBar
+{
+	/// <summary>
+	/// Interaction logic for MainWindow.xaml
+	/// </summary>
+	public partial class MainWindow : Window
+	{
+		private IList _items;
+		private int maxItems = 5;
+
+		public MainWindow()
+		{
+			InitializeComponent();
+			Main vm = new Main(this);
+			this.DataContext = vm;
+
+			_items = NotificationPanel.Children;
+
+			var workArea = SystemParameters.WorkArea;
+
+			this.Left = workArea.Left;
+			this.Top = workArea.Top;
+			this.Width = workArea.Width;
+			this.Height = workArea.Height;
+		}
+
+		public async void ShowNotification(object content, TimeSpan expirationTime)
+		{
+			var notification = new Notification((NotificationContent)content);
+
+			notification.NotificationClosed += OnNotificationClosed;
+
+			if (!IsLoaded)
+			{
+				return;
+			}
+
+			lock (_items)
+			{
+				_items.Add(notification);
+
+				if (_items.OfType<Notification>().Count(i => !i.IsClosing) > maxItems)
+				{
+					_items.OfType<Notification>().First(i => !i.IsClosing).Close();
+				}
+			}
+
+			if (expirationTime == TimeSpan.MaxValue)
+			{
+				return;
+			}
+			await Task.Delay(expirationTime);
+			notification.Close();
+		}
+
+		private void OnNotificationClosed(object sender, RoutedEventArgs routedEventArgs)
+		{
+			var notification = sender as Notification;
+			_items.Remove(notification);
+		}
+
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+			Console.WriteLine("Hi");
+		}
+	}
+}
