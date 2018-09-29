@@ -353,9 +353,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Description.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="IMG\app.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
