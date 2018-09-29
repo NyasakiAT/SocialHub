@@ -1,6 +1,8 @@
 ﻿using SocialBar.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
+using System.Windows;
 using TwitchLib.Client;
 using TwitchLib.Client.Events;
 using TwitchLib.Client.Models;
@@ -11,6 +13,7 @@ namespace SocialBar.Messengers
 	{
 		private TwitchClient client;
 		public string Name { get; set; }
+
 		public string Title { get; set; }
 		public string Message { get; set; }
 		public string Sender { get; set; }
@@ -21,8 +24,20 @@ namespace SocialBar.Messengers
 
 		public MessengerHandler Handler { get; set; }
 
+		private List<string> whisperList = new List<string>();
+		private bool whisperDeactivated = true;
+
 		public TwitchHandler()
 		{
+			try
+			{
+				whisperDeactivated = Boolean.Parse(ConfigurationManager.AppSettings["DisableWhisper"]);
+			}
+			catch (Exception e)
+			{
+				MessageBox.Show("Error on parsing DisableWhisper to boolean", "Error");
+			}
+
 			Name = "Twitch";
 			Username = ConfigurationManager.AppSettings["TwitchUsername"];
 			Token = ConfigurationManager.AppSettings["TwitchToken"];
@@ -32,7 +47,6 @@ namespace SocialBar.Messengers
 
 			client = new TwitchClient();
 			client.Initialize(credentials, Channel);
-
 			client.OnJoinedChannel += onJoinedChannel;
 			client.OnMessageReceived += onMessageReceived;
 			client.OnWhisperReceived += onWhisperReceived;
@@ -63,8 +77,10 @@ namespace SocialBar.Messengers
 
 		private void onWhisperReceived(object sender, OnWhisperReceivedArgs e)
 		{
-			if (Sender != client.TwitchUsername)
-				Handler.TriggerAction(Name, e.WhisperMessage.Message, e.WhisperMessage.Username, "Whisper");
+			if (Sender != client.TwitchUsername && !whisperDeactivated)
+			{
+				Handler.TriggerAction(Name, $"from {e.WhisperMessage.Username}", "Whisper", "Whisper");
+			}
 		}
 	}
 }

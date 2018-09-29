@@ -5,6 +5,7 @@ using System.Collections;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
 
 namespace SocialBar
 {
@@ -15,9 +16,15 @@ namespace SocialBar
 	{
 		private IList _items;
 		private int maxItems = 5;
+		private NotifyIcon notifyIcon = null;
 
 		public MainWindow()
 		{
+			notifyIcon = new NotifyIcon();
+
+			notifyIcon.Icon = new System.Drawing.Icon(@"IMG\app.ico"); //.ico file needed
+			notifyIcon.Click += new EventHandler(notifyIcon_Click);
+
 			InitializeComponent();
 			Main vm = new Main(this);
 			this.DataContext = vm;
@@ -61,15 +68,20 @@ namespace SocialBar
 			notification.Close();
 		}
 
+		private void notifyIcon_Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}
+
 		private void OnNotificationClosed(object sender, RoutedEventArgs routedEventArgs)
 		{
 			var notification = sender as Notification;
 			_items.Remove(notification);
 		}
 
-		private void Button_Click(object sender, RoutedEventArgs e)
+		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
-			Console.WriteLine("Hi");
+			notifyIcon.Visible = true;
 		}
 	}
 }

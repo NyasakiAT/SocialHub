@@ -211,6 +211,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -355,6 +356,9 @@
     <Resource Include="Description.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="IMG\app.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="IMG\discord.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

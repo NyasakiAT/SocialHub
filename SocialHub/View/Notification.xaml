@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:SocialBar.Model"
              mc:Ignorable="d" d:DesignWidth="350" Margin="2">
     <Grid Background="White" x:Name="NotificationGrid">
-        <Label x:Name="TitleBox" Content="{Binding Title}" VerticalAlignment="Top" Margin="40,10,10,0" Height="25" VerticalContentAlignment="Center" FontWeight="Bold" BorderThickness="0,0,0,1" BorderBrush="Black" />
+        <Label x:Name="TitleBox" Content="{Binding Title}" VerticalAlignment="Top" Margin="40,10,10,0" Height="25" FontWeight="Bold" BorderThickness="0,0,0,1" BorderBrush="Black" Padding="5,0,0,0" VerticalContentAlignment="Center" />
         <TextBlock Margin="10,40,10,10" TextWrapping="Wrap" Padding="5" Width="330" x:Name="ContentBox" />
         <Image x:Name="NotificationIcon" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="25" Margin="10,10,0,0" />
     </Grid>

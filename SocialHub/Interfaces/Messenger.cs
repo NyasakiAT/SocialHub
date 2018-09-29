@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SocialBar.Interfaces
 {
@@ -13,6 +9,7 @@ namespace SocialBar.Interfaces
 		String Title { get; set; }
 		String Sender { get; set; }
 		MessengerHandler Handler { get; set; }
+
 		void Run();
 	}
 }
