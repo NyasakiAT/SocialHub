@@ -45,19 +45,16 @@ namespace SocialBar.Model
 			{
 				case "Discord":
 					backgroundAsString = "#7289DA";
-					foregroundAsString = "#fff"; //TODO Remove since white should be default
 					imageUrl = AppDomain.CurrentDomain.BaseDirectory + @"IMG\discord.png";
 					break;
 
 				case "Twitch":
 					backgroundAsString = "#4B367C";
-					foregroundAsString = "#fff"; //TODO Remove since white should be default
 					imageUrl = AppDomain.CurrentDomain.BaseDirectory + @"IMG\twitch.png";
 					break;
 
 				default:
 					backgroundAsString = "#ffa0fa";
-					foregroundAsString = "#fff"; //TODO Remove since white should be default
 					imageUrl = AppDomain.CurrentDomain.BaseDirectory + @"";
 					break;
 			}
@@ -67,7 +64,6 @@ namespace SocialBar.Model
 				Title = sender,
 				Message = message,
 				BackgroundColor = backgroundAsString,
-				ForegroundColor = foregroundAsString,
 				ImageUrl = imageUrl,
 			});
 		}

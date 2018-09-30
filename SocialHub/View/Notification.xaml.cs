@@ -18,19 +18,14 @@ namespace SocialBar.Model
 		public Notification(NotificationContent c)
 		{
 			Color backgroundColor = (Color)ColorConverter.ConvertFromString(c.BackgroundColor);
-			Color foregroundColor = (Color)ColorConverter.ConvertFromString(c.ForegroundColor);
 			SolidColorBrush notificationBackgroundBrush = new SolidColorBrush(backgroundColor);
-			SolidColorBrush notificationForegroundBrush = new SolidColorBrush(foregroundColor);
 			ImageSource notifactionImage = new BitmapImage(new Uri(c.ImageUrl, UriKind.RelativeOrAbsolute));
 
 			Console.WriteLine($"{c.Title}\n{c.Message}");
 			InitializeComponent();
 			NotificationGrid.Background = notificationBackgroundBrush;
 			TitleBox.Content = c.Title;
-			TitleBox.Foreground = notificationForegroundBrush;
-			TitleBox.BorderBrush = notificationForegroundBrush;
 			ContentBox.Text = c.Message;
-			ContentBox.Foreground = notificationForegroundBrush;
 			NotificationIcon.Source = notifactionImage;
 		}
 
