@@ -1,4 +1,7 @@
 language: csharp
 solution: SocialHub.sln
+dotnet: 4.6.1
+script:
+ - dotnet restore
 install:
   - nuget restore SocialHub.sln
