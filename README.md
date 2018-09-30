@@ -6,3 +6,7 @@ Supporting:
 - Discord
 - Twitch
 - and more to come
+
+Screenshots
+-----------
+![Screenshot1](https://i.imgur.com/pyAJqgN.png)
