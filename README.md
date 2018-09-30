@@ -3,7 +3,6 @@ Application for adding desktop notifications for your favorite SocialApps
 
 Supporting:
 -----------
-
 - Discord
 - Twitch
 - and more to come
