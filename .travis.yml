@@ -1,0 +1,4 @@
+language: csharp
+solution: SocialHub.sln
+install:
+  - nuget restore SocialHub.sln
