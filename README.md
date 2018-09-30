@@ -1,4 +1,4 @@
-# SocialHub [![Build Status](https://travis-ci.com/Nyasaki/SocialHub.svg?branch=master)](https://travis-ci.com/Nyasaki/SocialHub)
+# SocialHub [![Build Status](https://travis-ci.org/Nyasaki/SocialHub.svg?branch=master)](https://travis-ci.org/Nyasaki/SocialHub)
 Application for adding desktop notifications for your favorite SocialApps
 
 Supporting:
