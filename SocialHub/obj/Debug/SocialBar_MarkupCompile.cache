@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Marcel Walk\Source\Repos\SocialHub\SocialHub\obj\Debug\
+C:\Users\Marcel Walk\source\repos\SocialHub\SocialHub\obj\Debug\
 SocialBar
 none
 false
 CODE_ANALYSIS;DEBUG;TRACE
-C:\Users\Marcel Walk\Source\Repos\SocialHub\SocialHub\App.xaml
+C:\Users\Marcel Walk\source\repos\SocialHub\SocialHub\App.xaml
 4686160674
 4-317644741
-26-1798025925
-188-1000007899
+22-860800662
+191390827021
 View\MainWindow.xaml;View\Notification.xaml;View\TwitchPinDialog.xaml;View\TwitterPinDialog.xaml;
 
-True
+False
 
