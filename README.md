@@ -7,6 +7,7 @@ Supporting:
 -----------
 - Discord
 - Twitch
+- Twitter
 - more to come
 
 
