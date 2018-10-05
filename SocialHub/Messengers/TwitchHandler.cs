@@ -12,7 +12,7 @@ using TwitchLib.Client.Models;
 
 namespace SocialBar.Messengers
 {
-	internal class TwitchHandler : Messenger
+	public class TwitchHandler : Messenger
 	{
 		private CustomTwitchClient client;
 		public string Name { get; set; }
