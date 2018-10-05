@@ -53,6 +53,11 @@ namespace SocialBar.Model
 					imageUrl = AppDomain.CurrentDomain.BaseDirectory + @"IMG\twitch.png";
 					break;
 
+				case "Twitter":
+					backgroundAsString = "#1DA1F2";
+					imageUrl = AppDomain.CurrentDomain.BaseDirectory + @"IMG\twitter.png";
+					break;
+
 				default:
 					backgroundAsString = "#ffa0fa";
 					imageUrl = AppDomain.CurrentDomain.BaseDirectory + @"";
