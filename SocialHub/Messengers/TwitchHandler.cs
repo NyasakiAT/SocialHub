@@ -1,9 +1,12 @@
-﻿using SocialBar.Interfaces;
+﻿using SocialBar.EventArgs;
+using SocialBar.Interfaces;
+using SocialBar.View;
+using SocialBar.Wrappers;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.Windows;
-using TwitchLib.Client;
 using TwitchLib.Client.Events;
 using TwitchLib.Client.Models;
 
@@ -11,7 +14,7 @@ namespace SocialBar.Messengers
 {
 	internal class TwitchHandler : Messenger
 	{
-		private TwitchClient client;
+		private CustomTwitchClient client;
 		public string Name { get; set; }
 
 		public string Title { get; set; }
@@ -31,26 +34,54 @@ namespace SocialBar.Messengers
 		{
 			try
 			{
+				Name = "Twitch";
+				Username = ConfigurationManager.AppSettings["TwitchUsername"];
+				Token = ConfigurationManager.AppSettings["TwitchToken"];
+				Channel = ConfigurationManager.AppSettings["TwitchChannel"];
 				whisperDeactivated = Boolean.Parse(ConfigurationManager.AppSettings["DisableWhisper"]);
+
+				if (Token == "")
+				{
+					TwitchPinDialog inputDialog = new TwitchPinDialog();
+					string pinCode = null;
+
+					Process.Start("https://twitchtokengenerator.com/");
+
+					if (inputDialog.ShowDialog() == true)
+						pinCode = inputDialog.PIN;
+
+					var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+					var settings = configFile.AppSettings.Settings;
+
+					settings["TwitchToken"].Value = pinCode;
+
+					configFile.Save(ConfigurationSaveMode.Modified);
+					ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
+				}
 			}
 			catch (Exception e)
 			{
 				MessageBox.Show("Error on parsing DisableWhisper to boolean", "Error");
 			}
 
-			Name = "Twitch";
-			Username = ConfigurationManager.AppSettings["TwitchUsername"];
-			Token = ConfigurationManager.AppSettings["TwitchToken"];
-			Channel = ConfigurationManager.AppSettings["TwitchChannel"];
-
 			ConnectionCredentials credentials = new ConnectionCredentials(Username, Token);
 
-			client = new TwitchClient();
+			client = new CustomTwitchClient();
+			client.TwitchUser = Username;
 			client.Initialize(credentials, Channel);
-			client.OnJoinedChannel += onJoinedChannel;
-			client.OnMessageReceived += onMessageReceived;
-			client.OnWhisperReceived += onWhisperReceived;
-			client.OnConnected += Client_OnConnected;
+			client.OnJoinedChannel += OnJoinedChannel;
+			client.OnMessageReceived += OnMessageReceived;
+			client.OnWhisperReceived += OnWhisperReceived;
+			client.OnConnected += OnConnected;
+			client.OnStreamingStateChanged += OnStreamingStateChanged;
+		}
+
+		private void OnStreamingStateChanged(object sender, OnStreamingStateChangedArgs e)
+		{
+			if (e.IsStreaming)
+				Handler.TriggerAction(Name, $"{Username} is streaming now!", "Twitch");
+			else
+				Handler.TriggerAction(Name, $"{Username} has stopped streaming :(", "Twitch");
 		}
 
 		public void Run()
@@ -58,24 +89,24 @@ namespace SocialBar.Messengers
 			client.Connect();
 		}
 
-		private void Client_OnConnected(object sender, OnConnectedArgs e)
+		private void OnConnected(object sender, OnConnectedArgs e)
 		{
 			Console.WriteLine("Im connected");
 		}
 
-		private void onJoinedChannel(object sender, OnJoinedChannelArgs e)
+		private void OnJoinedChannel(object sender, OnJoinedChannelArgs e)
 		{
 			Console.WriteLine("Ready now :)");
 			Handler.TriggerAction("Twitch", $"Connected with {Username} to channel {Channel} :)", "SocialHub");
 		}
 
-		private void onMessageReceived(object sender, OnMessageReceivedArgs e)
+		private void OnMessageReceived(object sender, OnMessageReceivedArgs e)
 		{
 			if (Sender != client.TwitchUsername)
 				Handler.TriggerAction(Name, e.ChatMessage.Message, e.ChatMessage.Username, e.ChatMessage.Channel);
 		}
 
-		private void onWhisperReceived(object sender, OnWhisperReceivedArgs e)
+		private void OnWhisperReceived(object sender, OnWhisperReceivedArgs e)
 		{
 			if (Sender != client.TwitchUsername && !whisperDeactivated)
 			{

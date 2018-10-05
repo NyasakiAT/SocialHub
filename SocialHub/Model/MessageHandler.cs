@@ -17,10 +17,12 @@ namespace SocialBar.Model
 		public MessageHandler(MainWindow w)
 		{
 			_w = w;
-			DiscordHandler d = new DiscordHandler();
-			TwitchHandler t = new TwitchHandler();
-			Messengers.Add(d);
-			Messengers.Add(t);
+			DiscordHandler discord = new DiscordHandler();
+			TwitchHandler twitch = new TwitchHandler();
+			TwitterHandler twitter = new TwitterHandler();
+			Messengers.Add(discord);
+			Messengers.Add(twitch);
+			Messengers.Add(twitter);
 			RunMessengers();
 		}
 
