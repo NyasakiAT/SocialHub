@@ -52,27 +52,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Discord.Net.Commands, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Discord.Net.Commands.1.0.2\lib\netstandard1.1\Discord.Net.Commands.dll</HintPath>
-    </Reference>
-    <Reference Include="Discord.Net.Core, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Discord.Net.Core.1.0.2\lib\net45\Discord.Net.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Discord.Net.Providers.WS4Net, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Discord.Net.Providers.WS4Net.1.0.2\lib\net45\Discord.Net.Providers.WS4Net.dll</HintPath>
-    </Reference>
-    <Reference Include="Discord.Net.Rest, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Discord.Net.Rest.1.0.2\lib\net45\Discord.Net.Rest.dll</HintPath>
-    </Reference>
-    <Reference Include="Discord.Net.Rpc, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Discord.Net.Rpc.1.0.2\lib\net45\Discord.Net.Rpc.dll</HintPath>
-    </Reference>
-    <Reference Include="Discord.Net.Webhook, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Discord.Net.Webhook.1.0.2\lib\netstandard1.1\Discord.Net.Webhook.dll</HintPath>
-    </Reference>
-    <Reference Include="Discord.Net.WebSocket, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Discord.Net.WebSocket.1.0.2\lib\net45\Discord.Net.WebSocket.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.2.1.1\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
     </Reference>
@@ -246,8 +225,8 @@
     <Compile Include="Parameters\ApiTokens.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
+      <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Notification.xaml.cs">
       <DependentUpon>Notification.xaml</DependentUpon>
@@ -316,6 +295,24 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Notification.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\TwitchPinDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\TwitterPinDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
