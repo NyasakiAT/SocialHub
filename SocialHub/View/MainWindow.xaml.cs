@@ -68,7 +68,7 @@ namespace SocialBar
 			notification.Close();
 		}
 
-		private void notifyIcon_Click(object sender, EventArgs e)
+		private void notifyIcon_Click(object sender, System.EventArgs e)
 		{
 			this.Close();
 		}

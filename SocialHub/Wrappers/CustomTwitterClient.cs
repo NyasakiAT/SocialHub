@@ -47,8 +47,6 @@ namespace SocialBar.Wrappers
 				var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 				var settings = configFile.AppSettings.Settings;
 
-				//ConfigurationManager.AppSettings["TwitterToken"] = userCredentials.AccessToken;
-				//ConfigurationManager.AppSettings["TwitterSecret"] = userCredentials.AccessTokenSecret;
 				settings["TwitterToken"].Value = userCredentials.AccessToken;
 				settings["TwitterSecret"].Value = userCredentials.AccessTokenSecret;
 

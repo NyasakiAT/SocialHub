@@ -11,5 +11,6 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/app.ico")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/discord.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/twitch.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/twitter.png")]
 
 
