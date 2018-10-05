@@ -143,9 +143,6 @@
     <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
-    <Reference Include="System.Reflection.TypeExtensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Reflection.TypeExtensions.4.3.0\lib\net46\System.Reflection.TypeExtensions.dll</HintPath>
-    </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.1\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
@@ -186,9 +183,6 @@
     </Reference>
     <Reference Include="Tweetinvi.Webhooks, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7247f14397bf67b9, processorArchitecture=MSIL">
       <HintPath>..\packages\TweetinviAPI.WebhooksPlugin.4.0.0\lib\net461\Tweetinvi.Webhooks.dll</HintPath>
-    </Reference>
-    <Reference Include="Tweetinvi.WebLogic, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7247f14397bf67b9, processorArchitecture=MSIL">
-      <HintPath>..\packages\TweetinviAPI.4.0.0\lib\net461\Tweetinvi.WebLogic.dll</HintPath>
     </Reference>
     <Reference Include="TwitchLib.Api, Version=2.1.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\TwitchLib.Api.2.1.3\lib\net452\TwitchLib.Api.dll</HintPath>
@@ -286,6 +280,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Config\packages.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
