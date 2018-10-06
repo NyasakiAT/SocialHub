@@ -1,7 +1,7 @@
-﻿<Application x:Class="SocialBar.App"
+﻿<Application x:Class="SocialHub.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:SocialBar"
+             xmlns:local="clr-namespace:SocialHub"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
     </Application.Resources>

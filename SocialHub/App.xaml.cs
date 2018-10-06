@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace SocialBar
+namespace SocialHub
 {
 	/// <summary>
 	/// Interaction logic for App.xaml

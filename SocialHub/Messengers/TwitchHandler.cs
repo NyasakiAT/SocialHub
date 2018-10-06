@@ -79,9 +79,9 @@ namespace SocialBar.Messengers
 		private void OnStreamingStateChanged(object sender, OnStreamingStateChangedArgs e)
 		{
 			if (e.IsStreaming)
-				Handler.TriggerAction(Name, $"{Username} is streaming now!", "Twitch");
+				Handler.TriggerAction(Name, $"{e.Username} is streaming now!", "Twitch");
 			else
-				Handler.TriggerAction(Name, $"{Username} has stopped streaming :(", "Twitch");
+				Handler.TriggerAction(Name, $"{e.Username} has stopped streaming :(", "Twitch");
 		}
 
 		public void Run()

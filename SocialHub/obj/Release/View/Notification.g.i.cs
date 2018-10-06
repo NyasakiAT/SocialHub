@@ -84,7 +84,7 @@ namespace SocialBar.Model {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/SocialBar;component/view/notification.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/SocialHub;component/view/notification.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\View\Notification.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
