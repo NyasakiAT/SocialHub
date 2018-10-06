@@ -8,12 +8,12 @@ C:\Users\Marcel Walk\source\repos\SocialHub\SocialHub\obj\Debug\
 SocialBar
 none
 false
-CODE_ANALYSIS;DEBUG;TRACE
+DEBUG;TRACE;CODE_ANALYSIS
 C:\Users\Marcel Walk\source\repos\SocialHub\SocialHub\App.xaml
 4686160674
 4-317644741
-26-1798025925
-187159167360
+22-860800662
+133-189322193
 View\MainWindow.xaml;View\Notification.xaml;View\TwitchPinDialog.xaml;View\TwitterPinDialog.xaml;
 
 True
