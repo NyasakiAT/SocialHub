@@ -10,7 +10,13 @@ Supporting:
 - Twitter
 - more to come
 
+Give me feedback
+-----------
+I really appreciate every feedback i get </br>
+<a href="https://discord.gg/HdNqAKF">Discord</a></br>
+<a href="https://twitter.com/Nyasaki_DE?lang=de">Twitter</a>
 
 Screenshots
 -----------
 ![Screenshot1](https://i.imgur.com/pyAJqgN.png)
+![Screenshot2](https://i.imgur.com/0xL9dFz.png)
