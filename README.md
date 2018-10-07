@@ -8,6 +8,7 @@ Supporting:
 - Discord
 - Twitch
 - Twitter
+- Reddit [WIP]
 - more to come
 
 Give me feedback
